@@ -36,3 +36,6 @@
 .uploadImg { width: 140rpx; height: 140rpx; border-radius: $radius-md; }
 .bottomBar { position: fixed; left: 0; right: 0; bottom: 0; padding: $spacing-md $page-padding; padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom)); background-color: $color-bg-card; box-shadow: $shadow-float; }
 .submitBtn { @include button-reset; height: $button-height-lg; background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; border-radius: $radius-button; font-size: $font-size-md; font-weight: $font-weight-semibold; width: 100%; &:active { opacity: 0.9; } }
+.emptyState { padding: $spacing-xl 0; text-align: center; }
+.emptyText { font-size: $font-size-md; color: $color-text-tertiary; }
+.progressTitle { font-size: $font-size-sm; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: $spacing-sm; }

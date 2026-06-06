@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
 import { useDidShow, useDidHide } from '@tarojs/taro';
-// 全局样式
+import { useUserStore } from '@/store/userStore';
 import './app.scss';
 
 function App(props) {
-  // 可以使用所有的 React Hooks
-  useEffect(() => {});
+  const { initFromStorage, isLoggedIn } = useUserStore();
 
-  // 对应 onShow
-  useDidShow(() => {});
+  useEffect(() => {
+    initFromStorage();
+  }, []);
 
-  // 对应 onHide
+  useDidShow(() => {
+    initFromStorage();
+  });
+
   useDidHide(() => {});
 
   return props.children;

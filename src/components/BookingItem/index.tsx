@@ -2,10 +2,10 @@ import React from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import styles from './index.module.scss'
 import StatusTag from '@/components/StatusTag'
-import type { BookingItem } from '@/types'
+import type { BookingItem as BookingItemType } from '@/types'
 
 interface BookingItemProps {
-  data: BookingItem
+  data: BookingItemType
 }
 
 const typeIconMap: Record<string, { char: string; bg: string; color: string }> = {
@@ -14,7 +14,7 @@ const typeIconMap: Record<string, { char: string; bg: string; color: string }> =
   visitor: { char: '访', bg: 'rgba(250, 140, 22, 0.1)', color: '#FA8C16' }
 }
 
-const BookingItem: React.FC<BookingItemProps> = ({ data }) => {
+const BookingItemComponent: React.FC<BookingItemProps> = ({ data }) => {
   const iconInfo = typeIconMap[data.type] || typeIconMap.meeting
 
   return (
@@ -50,4 +50,4 @@ const BookingItem: React.FC<BookingItemProps> = ({ data }) => {
   )
 }
 
-export default BookingItem
+export default BookingItemComponent

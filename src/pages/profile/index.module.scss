@@ -222,3 +222,115 @@
   color: $color-text-tertiary;
   flex-shrink: 0;
 }
+
+.badgeExpanded {
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-divider;
+}
+
+.qrBigBox {
+  width: 320rpx;
+  height: 320rpx;
+  margin: $spacing-md auto;
+  background: #fff;
+  border: 2rpx solid $color-divider;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.qrBigText {
+  font-size: 120rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  letter-spacing: 8rpx;
+}
+
+.qrContentText {
+  margin-top: $spacing-md;
+  padding: $spacing-md;
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  word-break: break-all;
+  font-family: monospace;
+  line-height: 1.6;
+}
+
+.modalMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modalBox {
+  width: 600rpx;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+}
+
+.modalTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  text-align: center;
+  margin-bottom: $spacing-lg;
+}
+
+.modalInputRow {
+  margin-bottom: $spacing-md;
+}
+
+.modalInputLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.modalInput {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 $spacing-md;
+  border: 1rpx solid $color-divider;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  box-sizing: border-box;
+}
+
+.modalActions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+}
+
+.modalBtn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+}
+
+.modalBtnCancel {
+  background: $color-bg-page;
+  color: $color-text-secondary;
+}
+
+.modalBtnConfirm {
+  background: $color-primary;
+  color: $color-text-white;
+}

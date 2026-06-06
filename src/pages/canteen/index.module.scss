@@ -35,3 +35,40 @@
 .cartCount { font-size: $font-size-md; color: $color-text-secondary; }
 .cartPrice { font-size: $font-size-xxl; font-weight: $font-weight-bold; color: $color-error; }
 .checkoutBtn { @include button-reset; height: $button-height-lg; padding: 0 $spacing-xl; background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); color: $color-text-white; border-radius: $radius-button; font-size: $font-size-md; font-weight: $font-weight-semibold; }
+.tabs { display: flex; gap: $spacing-sm; margin-bottom: $spacing-lg; }
+.tab { flex: 1; padding: $spacing-sm 0; text-align: center; background-color: $color-bg-card; border-radius: $radius-button; font-size: $font-size-sm; color: $color-text-secondary; box-shadow: $shadow-card; }
+.tabActive { background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); color: $color-text-white; font-weight: $font-weight-semibold; }
+.quantityControl { display: flex; align-items: center; gap: $spacing-xs; }
+.quantityBtn { @include button-reset; width: 52rpx; height: 52rpx; border-radius: $radius-round; background-color: $color-bg-hover; color: $color-text-primary; font-size: $font-size-lg; }
+.quantityNum { font-size: $font-size-md; font-weight: $font-weight-semibold; min-width: 40rpx; text-align: center; }
+.emptyState { padding: $spacing-xl 0; text-align: center; }
+.emptyText { font-size: $font-size-md; color: $color-text-tertiary; }
+.orderList { display: flex; flex-direction: column; gap: $spacing-md; }
+.orderCard { background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-lg; box-shadow: $shadow-card; }
+.orderHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: $spacing-xs; }
+.orderId { font-size: $font-size-sm; color: $color-text-secondary; }
+.orderStatus { font-size: $font-size-sm; font-weight: $font-weight-semibold; }
+.orderTime { font-size: $font-size-xs; color: $color-text-tertiary; margin-bottom: $spacing-sm; }
+.orderMealRow { display: flex; justify-content: space-between; padding: 6rpx 0; }
+.orderMealName { font-size: $font-size-sm; color: $color-text-primary; }
+.orderMealQty { font-size: $font-size-sm; color: $color-text-secondary; }
+.orderFooter { display: flex; justify-content: space-between; align-items: center; margin-top: $spacing-sm; padding-top: $spacing-sm; border-top: 1rpx solid $color-divider; }
+.orderPickup { font-size: $font-size-sm; color: $color-text-secondary; font-weight: $font-weight-medium; }
+.orderTotal { font-size: $font-size-lg; font-weight: $font-weight-bold; color: $color-error; }
+.pickupCodeCard { background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); border-radius: $radius-lg; padding: $spacing-xl $spacing-lg; margin-bottom: $spacing-lg; color: $color-text-white; text-align: center; }
+.pickupCodeTitle { font-size: $font-size-xl; font-weight: $font-weight-bold; margin-bottom: $spacing-lg; }
+.pickupCodeLabel { font-size: $font-size-sm; opacity: 0.9; margin-bottom: $spacing-md; }
+.pickupCodeBox { display: flex; justify-content: center; gap: $spacing-sm; margin-bottom: $spacing-md; }
+.pickupCodeChar { width: 88rpx; height: 120rpx; background-color: $color-text-white; color: $color-primary; border-radius: $radius-md; font-size: 72rpx; font-weight: $font-weight-bold; display: flex; align-items: center; justify-content: center; }
+.pickupCodeTip { font-size: $font-size-sm; opacity: 0.9; }
+.orderDetailCard { background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-lg; box-shadow: $shadow-card; margin-bottom: $spacing-lg; }
+.orderDetailTitle { font-size: $font-size-lg; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: $spacing-md; }
+.orderDetailRow { display: flex; justify-content: space-between; padding: $spacing-xs 0; }
+.orderDetailLabel { font-size: $font-size-sm; color: $color-text-tertiary; }
+.orderDetailValue { font-size: $font-size-sm; color: $color-text-primary; }
+.orderMealItem { display: flex; justify-content: space-between; padding: $spacing-xs 0; border-bottom: 1rpx solid $color-divider; }
+.orderMealInfo { font-size: $font-size-sm; color: $color-text-secondary; }
+.orderTotalRow { display: flex; justify-content: space-between; padding-top: $spacing-md; margin-top: $spacing-sm; }
+.orderTotalLabel { font-size: $font-size-md; font-weight: $font-weight-semibold; color: $color-text-primary; }
+.orderTotalValue { font-size: $font-size-xl; font-weight: $font-weight-bold; color: $color-error; }
+.backToMenuBtn { @include button-reset; height: $button-height-lg; background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); color: $color-text-white; border-radius: $radius-button; font-size: $font-size-md; font-weight: $font-weight-semibold; width: 100%; &:active { opacity: 0.9; } }

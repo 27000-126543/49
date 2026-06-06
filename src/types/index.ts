@@ -47,6 +47,7 @@ export interface ServiceItem {
   iconBg: string
   path: string
   status?: 'online' | 'offline'
+  badge?: string
 }
 
 export type BookingType = 'meeting' | 'desk' | 'visitor'

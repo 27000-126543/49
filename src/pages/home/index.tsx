@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import classnames from 'classnames'
@@ -6,8 +6,9 @@ import styles from './index.module.scss'
 import StatCard from '@/components/StatCard'
 import QuickEntry from '@/components/QuickEntry'
 import { useUserStore } from '@/store/userStore'
-import { mockStats, mockQuickEntries, mockNotices } from '@/data/mockIndex'
-import type { NoticeItem } from '@/types'
+import { StorageService } from '@/utils/storage'
+import { mockQuickEntries } from '@/data/mockIndex'
+import type { StatItem, NoticeItem } from '@/types'
 
 const quickIconMap: Record<string, string> = {
   meeting: '会',
@@ -20,9 +21,80 @@ const quickIconMap: Record<string, string> = {
   admin: '管'
 }
 
+const formatTime = (isoString: string): string => {
+  const now = new Date()
+  const date = new Date(isoString)
+  const diffMs = now.getTime() - date.getTime()
+  const diffMin = Math.floor(diffMs / 60000)
+  const diffHour = Math.floor(diffMs / 3600000)
+  const diffDay = Math.floor(diffMs / 86400000)
+  if (diffMin < 1) return '刚刚'
+  if (diffMin < 60) return `${diffMin}分钟前`
+  if (diffHour < 24) return `${diffHour}小时前`
+  if (diffDay < 7) return `${diffDay}天前`
+  return `${date.getMonth() + 1}/${date.getDate()}`
+}
+
 const HomePage: React.FC = () => {
-  const { user } = useUserStore()
-  const [unreadCount] = useState(3)
+  const { user, isLoggedIn } = useUserStore()
+  const [, forceUpdate] = useState(0)
+
+  useEffect(() => {
+    if (!isLoggedIn || !user) {
+      Taro.reLaunch({ url: '/pages/login/index' })
+      return
+    }
+    forceUpdate((n) => n + 1)
+  }, [isLoggedIn, user])
+
+  const enterpriseName = useMemo(() => {
+    if (!user) return ''
+    const ents = StorageService.getEnterprises()
+    const ent = ents.find((e) => e.id === user.enterpriseId)
+    return ent?.name || ''
+  }, [user])
+
+  const stats: StatItem[] = useMemo(() => {
+    if (!user) return []
+    const today = new Date().toISOString().split('T')[0]
+    const meetingRoomsCount = StorageService.getMeetingRooms().length
+    const todayBookingsCount = StorageService.getMeetingBookings().filter((b) => b.date === today).length
+    const pendingRepairCount = StorageService.getRepairOrders().filter(
+      (r) => r.status === 'pending' || r.status === 'assigned' || r.status === 'processing'
+    ).length
+    const unreadMsgCount = StorageService.getMessages(user.id).filter((m) => !m.read).length
+    return [
+      { label: '会议室数', value: meetingRoomsCount, unit: '间', color: '#165DFF' },
+      { label: '今日预约', value: todayBookingsCount, unit: '条', color: '#00B42A' },
+      { label: '待处理报修', value: pendingRepairCount, unit: '单', color: '#722ED1' },
+      { label: '未读消息', value: unreadMsgCount, unit: '条', color: '#F53F3F' }
+    ]
+  }, [user])
+
+  const notices: NoticeItem[] = useMemo(() => {
+    const msgs = StorageService.getMessages(user?.id || 'all')
+    const typeMap: Record<string, 'system' | 'notice' | 'warning'> = {
+      system: 'system',
+      notice: 'notice',
+      approval: 'system',
+      booking: 'notice',
+      repair: 'warning'
+    }
+    return msgs
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .map((m) => ({
+        id: m.id,
+        title: m.title,
+        content: m.content,
+        time: formatTime(m.createdAt),
+        type: typeMap[m.type] || 'notice'
+      }))
+  }, [user])
+
+  const unreadCount = useMemo(() => {
+    if (!user) return 0
+    return StorageService.getMessages(user.id).filter((m) => !m.read).length
+  }, [user])
 
   const handleNoticeClick = (item: NoticeItem) => {
     console.log('[Home] 点击通知:', item.title)
@@ -35,6 +107,10 @@ const HomePage: React.FC = () => {
       [styles.tagNotice]: type === 'notice',
       [styles.tagWarning]: type === 'warning'
     })
+  }
+
+  if (!user) {
+    return <ScrollView scrollY className={styles.page} />
   }
 
   return (
@@ -61,7 +137,7 @@ const HomePage: React.FC = () => {
           </View>
         </View>
         <View className={styles.enterpriseCard}>
-          <Text className={styles.enterpriseName}>🏢 {user.enterpriseName}</Text>
+          <Text className={styles.enterpriseName}>🏢 {enterpriseName}</Text>
           <View className={styles.enterpriseInfo}>
             <Text>工号：{user.badgeNumber}</Text>
             <Text>门禁：{user.accessFloors.length}层权限</Text>
@@ -71,7 +147,7 @@ const HomePage: React.FC = () => {
 
       <View className={styles.mainContent}>
         <View className={styles.statsRow}>
-          {mockStats.map((stat) => (
+          {stats.map((stat) => (
             <StatCard key={stat.label} data={stat} />
           ))}
         </View>
@@ -105,22 +181,30 @@ const HomePage: React.FC = () => {
             </Text>
           </View>
           <View className={styles.noticeList}>
-            {mockNotices.map((notice) => (
-              <View
-                key={notice.id}
-                className={styles.noticeCard}
-                onClick={() => handleNoticeClick(notice)}
-              >
-                <View className={classnames(styles.noticeTag, getTagClass(notice.type))}>
-                  {notice.type === 'system' ? '系统' : notice.type === 'notice' ? '通知' : '预警'}
-                </View>
+            {notices.length === 0 ? (
+              <View className={styles.noticeCard}>
                 <View className={styles.noticeContent}>
-                  <Text className={styles.noticeTitle}>{notice.title}</Text>
-                  <Text className={styles.noticeText}>{notice.content}</Text>
+                  <Text className={styles.noticeTitle}>暂无通知</Text>
                 </View>
-                <Text className={styles.noticeTime}>{notice.time}</Text>
               </View>
-            ))}
+            ) : (
+              notices.map((notice) => (
+                <View
+                  key={notice.id}
+                  className={styles.noticeCard}
+                  onClick={() => handleNoticeClick(notice)}
+                >
+                  <View className={classnames(styles.noticeTag, getTagClass(notice.type))}>
+                    {notice.type === 'system' ? '系统' : notice.type === 'notice' ? '通知' : '预警'}
+                  </View>
+                  <View className={styles.noticeContent}>
+                    <Text className={styles.noticeTitle}>{notice.title}</Text>
+                    <Text className={styles.noticeText}>{notice.content}</Text>
+                  </View>
+                  <Text className={styles.noticeTime}>{notice.time}</Text>
+                </View>
+              ))
+            )}
           </View>
         </View>
       </View>
