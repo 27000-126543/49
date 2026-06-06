@@ -1,0 +1,31 @@
+@use '@/styles/variables.scss' as *;
+
+.page { padding: 0 $page-padding; padding-bottom: 48rpx; }
+.summaryRow { display: flex; gap: $spacing-md; margin-bottom: $spacing-lg; }
+.summaryCard { flex: 1; background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-lg; box-shadow: $shadow-card; }
+.summaryLabel { font-size: $font-size-sm; color: $color-text-tertiary; margin-bottom: $spacing-xs; }
+.summaryValue { font-size: $font-size-xxl; font-weight: $font-weight-bold; color: $color-text-primary; }
+.summaryUnit { font-size: $font-size-xs; color: $color-text-tertiary; margin-left: 4rpx; }
+.summaryTrend { font-size: $font-size-xs; margin-top: 4rpx; }
+.chartCard { background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-lg; box-shadow: $shadow-card; margin-bottom: $spacing-lg; }
+.chartTitle { font-size: $font-size-lg; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: $spacing-md; }
+.chartRow { display: flex; align-items: flex-end; gap: $spacing-sm; height: 280rpx; padding: $spacing-md 0; }
+.chartBar { flex: 1; display: flex; flex-direction: column; align-items: center; gap: $spacing-xs; }
+.barFill { width: 100%; border-radius: $radius-sm $radius-sm 0 0; position: relative; }
+.barElec { background: linear-gradient(180deg, $color-primary 0%, $color-primary-light 100%); }
+.barWater { background: linear-gradient(180deg, $color-secondary 0%, $color-secondary-light 100%); }
+.barLabel { font-size: $font-size-xs; color: $color-text-tertiary; }
+.legend { display: flex; gap: $spacing-lg; justify-content: center; padding-top: $spacing-md; border-top: 1rpx solid $color-divider; }
+.legendItem { display: flex; align-items: center; gap: 6rpx; font-size: $font-size-xs; color: $color-text-secondary; }
+.legendDot { width: 20rpx; height: 20rpx; border-radius: $radius-xs; }
+.floorList { background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-lg; box-shadow: $shadow-card; }
+.floorTitle { font-size: $font-size-lg; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: $spacing-md; }
+.floorItem { padding: $spacing-md 0; border-bottom: 1rpx solid $color-divider; display: flex; flex-direction: column; gap: $spacing-sm; }
+.floorItem:last-child { border-bottom: none; }
+.floorRow { display: flex; justify-content: space-between; align-items: center; }
+.floorName { font-size: $font-size-md; font-weight: $font-weight-medium; color: $color-text-primary; }
+.floorEnt { font-size: $font-size-xs; color: $color-text-tertiary; }
+.floorData { display: flex; gap: $spacing-lg; font-size: $font-size-sm; color: $color-text-secondary; }
+.progressBar { width: 100%; height: 12rpx; background-color: $color-bg-hover; border-radius: $radius-round; overflow: hidden; }
+.progressFill { height: 100%; border-radius: $radius-round; }
+.warnTag { padding: 4rpx 16rpx; border-radius: $radius-sm; font-size: $font-size-xs; font-weight: $font-weight-medium; }

@@ -1,0 +1,37 @@
+@use '@/styles/variables.scss' as *;
+
+.page { padding: 0 $page-padding; padding-bottom: 160rpx; }
+.predictionCard { background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); border-radius: $radius-lg; padding: $spacing-lg; margin-bottom: $spacing-lg; color: $color-text-white; }
+.predictionHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: $spacing-md; }
+.predictionTitle { font-size: $font-size-lg; font-weight: $font-weight-semibold; }
+.weather { font-size: $font-size-sm; opacity: 0.9; }
+.predictionBody { display: flex; align-items: baseline; gap: $spacing-sm; margin-bottom: $spacing-sm; }
+.flowNum { font-size: 56rpx; font-weight: $font-weight-bold; line-height: 1; }
+.flowUnit { font-size: $font-size-md; opacity: 0.9; }
+.flowTrend { font-size: $font-size-sm; background: rgba(255,255,255,0.25); padding: 4rpx 12rpx; border-radius: $radius-round; }
+.suggestTitle { font-size: $font-size-sm; opacity: 0.9; margin-bottom: $spacing-xs; }
+.suggestList { display: flex; flex-direction: column; gap: 6rpx; }
+.suggestItem { display: flex; justify-content: space-between; font-size: $font-size-xs; opacity: 0.95; }
+.weekBar { display: flex; gap: $spacing-xs; margin-bottom: $spacing-lg; background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-sm; box-shadow: $shadow-card; }
+.weekItem { flex: 1; padding: $spacing-sm 0; text-align: center; border-radius: $radius-md; }
+.weekItemActive { background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; }
+.weekDay { font-size: $font-size-xs; opacity: 0.8; }
+.weekDate { font-size: $font-size-md; font-weight: $font-weight-semibold; }
+.categoryBar { display: flex; gap: $spacing-sm; margin-bottom: $spacing-lg; overflow-x: auto; @include scroll-x-container; }
+.categoryItem { @include scroll-x-item(auto); padding: 12rpx 28rpx; background-color: $color-bg-card; border-radius: $radius-button; font-size: $font-size-sm; color: $color-text-secondary; box-shadow: $shadow-card; white-space: nowrap; }
+.categoryActive { background: $color-canteen-soft; color: $color-canteen; font-weight: $font-weight-medium; }
+.mealList { display: flex; flex-direction: column; gap: $spacing-md; }
+.mealCard { display: flex; gap: $spacing-md; background-color: $color-bg-card; border-radius: $radius-lg; padding: $spacing-md; box-shadow: $shadow-card; }
+.mealImg { width: 180rpx; height: 180rpx; border-radius: $radius-md; flex-shrink: 0; }
+.mealBody { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.mealName { font-size: $font-size-lg; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: 6rpx; }
+.mealCategory { font-size: $font-size-xs; color: $color-canteen; background-color: $color-canteen-soft; padding: 2rpx 12rpx; border-radius: $radius-sm; align-self: flex-start; margin-bottom: 6rpx; }
+.mealCal { font-size: $font-size-xs; color: $color-text-tertiary; margin-bottom: $spacing-sm; }
+.mealFooter { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+.mealPrice { font-size: $font-size-xl; font-weight: $font-weight-bold; color: $color-error; }
+.addBtn { @include button-reset; width: 64rpx; height: 64rpx; border-radius: $radius-round; background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); color: $color-text-white; font-size: $font-size-xl; font-weight: $font-weight-light; }
+.bottomBar { position: fixed; left: 0; right: 0; bottom: 0; padding: $spacing-md $page-padding; padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom)); background-color: $color-bg-card; box-shadow: $shadow-float; display: flex; justify-content: space-between; align-items: center; }
+.cartInfo { display: flex; align-items: baseline; gap: $spacing-xs; }
+.cartCount { font-size: $font-size-md; color: $color-text-secondary; }
+.cartPrice { font-size: $font-size-xxl; font-weight: $font-weight-bold; color: $color-error; }
+.checkoutBtn { @include button-reset; height: $button-height-lg; padding: 0 $spacing-xl; background: linear-gradient(135deg, $color-canteen 0%, #95de64 100%); color: $color-text-white; border-radius: $radius-button; font-size: $font-size-md; font-weight: $font-weight-semibold; }

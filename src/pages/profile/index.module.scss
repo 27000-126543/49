@@ -1,0 +1,224 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  padding-bottom: 48rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  padding: $spacing-xl $page-padding 120rpx;
+  color: $color-text-white;
+  border-radius: 0 0 40rpx 40rpx;
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: $radius-round;
+  border: 6rpx solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  margin-bottom: 6rpx;
+}
+
+.userRole {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 20rpx;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: $radius-round;
+  font-size: $font-size-sm;
+  margin-bottom: 6rpx;
+}
+
+.userDept {
+  font-size: $font-size-sm;
+  opacity: 0.9;
+}
+
+.badgeCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin: -80rpx $page-padding $spacing-lg;
+  box-shadow: $shadow-card;
+  position: relative;
+  z-index: 1;
+}
+
+.badgeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.badgeTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.badgeNumber {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.badgeMain {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-md 0;
+  border-top: 1rpx solid $color-divider;
+  border-bottom: 1rpx solid $color-divider;
+}
+
+.qrPlaceholder {
+  width: 140rpx;
+  height: 140rpx;
+  background: linear-gradient(135deg, $color-primary-soft 0%, $color-secondary-soft 100%);
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.qrText {
+  font-size: 64rpx;
+}
+
+.badgeInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.badgeName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 6rpx;
+}
+
+.badgeDept {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: 4rpx;
+}
+
+.badgeEnt {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.badgeFooter {
+  display: flex;
+  justify-content: space-between;
+  padding-top: $spacing-md;
+}
+
+.accessInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.accessLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.accessValue {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.badgeAction {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.section {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.menuList {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background-color: $color-bg-hover;
+  }
+}
+
+.menuIcon {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.menuContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.menuName {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.menuArrow {
+  font-size: $font-size-lg;
+  color: $color-text-tertiary;
+  flex-shrink: 0;
+}

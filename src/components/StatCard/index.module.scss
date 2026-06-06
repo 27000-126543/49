@@ -1,0 +1,71 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  flex: 1;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-sm;
+}
+
+.label {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: $radius-round;
+  background-color: $color-primary;
+  margin-top: 8rpx;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6rpx;
+  margin-bottom: 8rpx;
+}
+
+.value {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1.2;
+}
+
+.unit {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  font-weight: $font-weight-normal;
+}
+
+.trendRow {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.trendUp {
+  font-size: $font-size-xs;
+  color: $color-success;
+}
+
+.trendDown {
+  font-size: $font-size-xs;
+  color: $color-error;
+}
+
+.trendNone {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}

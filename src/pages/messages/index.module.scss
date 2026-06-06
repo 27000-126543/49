@@ -1,0 +1,55 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  padding: 0 $page-padding;
+  padding-bottom: 48rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.readAll {
+  font-size: $font-size-sm;
+  color: $color-primary;
+}
+
+.filterRow {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  overflow-x: auto;
+  padding-bottom: 4rpx;
+  @include scroll-x-container;
+}
+
+.filterItem {
+  @include scroll-x-item(auto);
+  padding: 12rpx 28rpx;
+  background-color: $color-bg-card;
+  border-radius: $radius-button;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  box-shadow: $shadow-card;
+}
+
+.filterActive {
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}

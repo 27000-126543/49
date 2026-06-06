@@ -1,0 +1,25 @@
+@use '@/styles/variables.scss' as *;
+
+.page { padding: 0 $page-padding; padding-bottom: 48rpx; }
+.formCard { background-color: $color-bg-card; border-radius: $radius-lg; box-shadow: $shadow-card; padding: $spacing-lg; margin-bottom: $spacing-lg; }
+.formTitle { font-size: $font-size-lg; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: $spacing-md; }
+.formItem { margin-bottom: $spacing-md; }
+.formLabel { font-size: $font-size-sm; color: $color-text-tertiary; margin-bottom: $spacing-xs; }
+.formInput { height: 80rpx; background-color: $color-bg-hover; border-radius: $radius-md; padding: 0 $spacing-md; font-size: $font-size-md; color: $color-text-primary; display: flex; align-items: center; }
+.formTextarea { min-height: 160rpx; background-color: $color-bg-hover; border-radius: $radius-md; padding: $spacing-md; font-size: $font-size-md; color: $color-text-primary; }
+.listCard { background-color: $color-bg-card; border-radius: $radius-lg; box-shadow: $shadow-card; padding: $spacing-lg; margin-bottom: $spacing-md; }
+.listHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: $spacing-sm; }
+.visitorName { font-size: $font-size-lg; font-weight: $font-weight-semibold; color: $color-text-primary; }
+.visitorCompany { font-size: $font-size-sm; color: $color-text-secondary; margin-bottom: $spacing-xs; }
+.visitorReason { font-size: $font-size-sm; color: $color-text-tertiary; margin-bottom: $spacing-sm; }
+.visitorMeta { display: flex; justify-content: space-between; align-items: center; padding-top: $spacing-sm; border-top: 1rpx solid $color-divider; }
+.visitorTime { font-size: $font-size-sm; color: $color-text-secondary; }
+.qrBox { margin-top: $spacing-md; padding: $spacing-md; background: linear-gradient(135deg, $color-primary-soft 0%, $color-secondary-soft 100%); border-radius: $radius-md; text-align: center; }
+.qrCode { font-size: 80rpx; margin-bottom: $spacing-xs; }
+.qrText { font-size: $font-size-sm; color: $color-primary; font-weight: $font-weight-medium; }
+.qrExpire { font-size: $font-size-xs; color: $color-text-tertiary; margin-top: 4rpx; }
+.actionRow { display: flex; gap: $spacing-sm; margin-top: $spacing-md; }
+.actionBtn { @include button-reset; flex: 1; height: $button-height-sm; border-radius: $radius-button; font-size: $font-size-sm; font-weight: $font-weight-medium; &:active { opacity: 0.8; } }
+.btnReject { background-color: $color-error-soft; color: $color-error; }
+.btnApprove { background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; }
+.submitBtn { @include button-reset; height: $button-height-lg; background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; border-radius: $radius-button; font-size: $font-size-md; font-weight: $font-weight-semibold; width: 100%; &:active { opacity: 0.9; } }

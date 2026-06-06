@@ -1,0 +1,28 @@
+@use '@/styles/variables.scss' as *;
+
+.page { padding: 0 $page-padding; padding-bottom: 160rpx; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: $spacing-lg; }
+.title { font-size: $font-size-xl; font-weight: $font-weight-bold; color: $color-text-primary; }
+.dateRow { display: flex; gap: $spacing-sm; margin-bottom: $spacing-lg; overflow-x: auto; @include scroll-x-container; }
+.dateItem { @include scroll-x-item(120rpx); padding: $spacing-md 0; text-align: center; background-color: $color-bg-card; border-radius: $radius-md; box-shadow: $shadow-card; flex-shrink: 0; }
+.dateActive { background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; }
+.dateDay { font-size: $font-size-lg; font-weight: $font-weight-semibold; }
+.dateWeek { font-size: $font-size-xs; opacity: 0.8; }
+.areaSection { margin-bottom: $spacing-lg; }
+.areaTitle { font-size: $font-size-md; font-weight: $font-weight-semibold; color: $color-text-primary; margin-bottom: $spacing-sm; }
+.deskGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: $spacing-sm; }
+.desk { height: 100rpx; border-radius: $radius-md; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4rpx; border: 2rpx solid $color-border; background-color: $color-bg-card; }
+.deskName { font-size: $font-size-sm; font-weight: $font-weight-semibold; }
+.deskPrice { font-size: $font-size-xs; color: $color-text-tertiary; }
+.deskAvailable { border-color: $color-success; background-color: $color-success-soft; color: $color-success; }
+.deskOccupied { border-color: $color-error; background-color: $color-error-soft; color: $color-error; opacity: 0.6; }
+.deskReserved { border-color: $color-meeting; background-color: $color-meeting-soft; color: $color-meeting; }
+.deskSelected { background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; border-color: transparent; }
+.bottomBar { position: fixed; left: 0; right: 0; bottom: 0; padding: $spacing-md $page-padding; padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom)); background-color: $color-bg-card; box-shadow: $shadow-float; }
+.summary { display: flex; justify-content: space-between; align-items: center; margin-bottom: $spacing-sm; }
+.summaryLabel { font-size: $font-size-sm; color: $color-text-secondary; }
+.summaryValue { font-size: $font-size-xl; font-weight: $font-weight-bold; color: $color-primary; }
+.bookBtn { @include button-reset; height: $button-height-lg; background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%); color: $color-text-white; border-radius: $radius-button; font-size: $font-size-md; font-weight: $font-weight-semibold; width: 100%; &:active { opacity: 0.9; } }
+.legend { display: flex; gap: $spacing-lg; margin-bottom: $spacing-lg; padding: $spacing-md $spacing-lg; background-color: $color-bg-card; border-radius: $radius-md; box-shadow: $shadow-card; }
+.legendItem { display: flex; align-items: center; gap: 8rpx; font-size: $font-size-xs; color: $color-text-secondary; }
+.legendDot { width: 20rpx; height: 20rpx; border-radius: $radius-xs; }
